@@ -1,7 +1,7 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 # Create your views here.
 def home_page(request):
-    html_response: str = "<html><body>HomePage</body></html>"
-    return HttpResponse(html_response)
+    context: dict = {}
+    return render(request=request, template_name='lists/index.html', context=context)
