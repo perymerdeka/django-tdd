@@ -18,3 +18,8 @@ class UserTest(TestCase):
         html_page = response.content.decode('utf-8')
         expect_html: str = render_to_string('lists/index.html')
         self.assertEqual(html_page, expect_html)
+
+    # testing post request
+    def test_save_POST_request(self):
+        response = self.client.post('/', data={'item_text': 'A new list item'})
+        self.assertIn('A new list item', response.content.decode())
